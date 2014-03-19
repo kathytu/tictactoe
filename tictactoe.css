@@ -1,0 +1,114 @@
+body {
+  background: #000;
+  color: #fff;
+}
+
+#outerboard {
+  margin-top: 4em;
+  width: 100%;
+  text-align: center;
+}
+
+#innerboard {
+  display: inline-block;
+  width: 300px;
+}
+
+#title {
+  width: 160px;
+  float: right;
+  font-style: sans-serif;
+  font-size: 4em;
+}
+
+#title span{
+  display: block;
+  text-align: left;
+}
+
+#bubble 
+{
+  margin: 155px 0 0 30px ;
+  float: left;
+  position: relative;
+  width: 75px;
+  height: 50px;
+  background: #000;
+  border-radius: 10px;
+  border: #fff solid 3px;
+  text-align: center;
+  line-height: 50px;
+}
+
+#bubble:after 
+{
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-width: 6px 0 6px 14px;
+  border-color: transparent #000;
+  display: block;
+  width: 0;
+  z-index: 1;
+  right: -14px;
+  top: 23px;
+}
+
+#bubble:before 
+{
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-width: 8px 0 8px 16px;
+  border-color: transparent #fff;
+  display: block;
+  width: 0;
+  z-index: 0;
+  right: -19px;
+  top: 21px;
+}
+
+#memo {
+  font-style: sans-serif;
+  font-size: 1em;
+  margin: 10px;
+  text-align: center;
+}
+
+#reset {
+  margin-top: 15px;
+}
+
+#reset button {
+  background: #000;
+  border: 1 solid;
+  border-color: #fff;
+  font: sans-serif;
+  color: #fff;
+  font-size: .7em;
+  text-transform:uppercase
+}
+
+#game {
+  margin: 10px auto;
+  overflow: auto;
+  width: 290px;
+  padding: 10px;
+}
+
+#game div {
+  clear: both;
+}
+
+#game button {
+  background: #000;
+  color: #fff;
+  display: block;
+  float: left;
+  width: 75px;
+  height: 75px;
+  margin: 10px 10px;
+  border: 1px;
+  border-style: solid;
+  font-size: 1.5em;
+}
