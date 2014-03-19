@@ -1,3 +1,7 @@
+function reset() {
+  location.reload();
+}
+
 function checkValid(button) {
   return button.textContent.length === 0; // return true or false
 }
@@ -14,15 +18,16 @@ function checkTie(box) {
   return true;
 }
 
+// DO BETTER: there's gotta be a easier way to do this
 function checkWinner(box, players, turn) {
  
   // horizontal row 1
   if (box[0].textContent === players[turn] &&
       box[1].textContent === players[turn] &&
       box[2].textContent === players[turn]) {
-    document.getElementById("box0").style.boxShadow="0px 0px 5px 5px";
-    document.getElementById("box1").style.boxShadow="0px 0px 5px 5px";
-    document.getElementById("box2").style.boxShadow="0px 0px 5px 5px";
+    box[0].style.boxShadow="0px 0px 5px 5px";
+    box[1].style.boxShadow="0px 0px 5px 5px";
+    box[2].style.boxShadow="0px 0px 5px 5px";
     return true;
   }
   
@@ -30,9 +35,9 @@ function checkWinner(box, players, turn) {
   if (box[3].textContent === players[turn] &&
       box[4].textContent === players[turn] &&
       box[5].textContent === players[turn]) {
-    document.getElementById("box3").style.boxShadow="0px 0px 5px 5px";
-    document.getElementById("box4").style.boxShadow="0px 0px 5px 5px";
-    document.getElementById("box5").style.boxShadow="0px 0px 5px 5px";
+    box[3].style.boxShadow="0px 0px 5px 5px";
+    box[4].style.boxShadow="0px 0px 5px 5px";
+    box[5].style.boxShadow="0px 0px 5px 5px";
       return true;
   }
 
@@ -40,9 +45,9 @@ function checkWinner(box, players, turn) {
   if (box[6].textContent === players[turn] &&
       box[7].textContent === players[turn] &&
       box[8].textContent === players[turn]) {
-    document.getElementById("box6").style.boxShadow="0px 0px 5px 5px";
-    document.getElementById("box7").style.boxShadow="0px 0px 5px 5px";
-    document.getElementById("box8").style.boxShadow="0px 0px 5px 5px";
+    box[6].style.boxShadow="0px 0px 5px 5px";
+    box[7].style.boxShadow="0px 0px 5px 5px";
+    box[8].style.boxShadow="0px 0px 5px 5px";
       return true;
   }
 
@@ -50,9 +55,9 @@ function checkWinner(box, players, turn) {
   if (box[0].textContent === players[turn] &&
       box[4].textContent === players[turn] &&
       box[8].textContent === players[turn]) {
-    document.getElementById("box0").style.boxShadow="0px 0px 5px 5px";
-    document.getElementById("box4").style.boxShadow="0px 0px 5px 5px";
-    document.getElementById("box8").style.boxShadow="0px 0px 5px 5px";
+    box[0].style.boxShadow="0px 0px 5px 5px";
+    box[4].style.boxShadow="0px 0px 5px 5px";
+    box[8].style.boxShadow="0px 0px 5px 5px";
       return true;
   }
   
@@ -60,9 +65,9 @@ function checkWinner(box, players, turn) {
   if (box[2].textContent === players[turn] &&
       box[4].textContent === players[turn] &&
       box[6].textContent === players[turn]) {
-    document.getElementById("box2").style.boxShadow="0px 0px 5px 5px";
-    document.getElementById("box4").style.boxShadow="0px 0px 5px 5px";
-    document.getElementById("box6").style.boxShadow="0px 0px 5px 5px";
+    box[2].style.boxShadow="0px 0px 5px 5px";
+    box[4].style.boxShadow="0px 0px 5px 5px";
+    box[6].style.boxShadow="0px 0px 5px 5px";
       return true;
   }
   
@@ -70,9 +75,9 @@ function checkWinner(box, players, turn) {
   if (box[0].textContent === players[turn] &&
       box[3].textContent === players[turn] &&
       box[6].textContent === players[turn]) {
-    document.getElementById("box0").style.boxShadow="0px 0px 5px 5px";
-    document.getElementById("box3").style.boxShadow="0px 0px 5px 5px";
-    document.getElementById("box6").style.boxShadow="0px 0px 5px 5px";
+    box[0].style.boxShadow="0px 0px 5px 5px";
+    box[3].style.boxShadow="0px 0px 5px 5px";
+    box[6].style.boxShadow="0px 0px 5px 5px";
       return true;
   }
   
@@ -80,9 +85,9 @@ function checkWinner(box, players, turn) {
   if (box[1].textContent === players[turn] &&
       box[4].textContent === players[turn] &&
       box[7].textContent === players[turn]) {
-    document.getElementById("box1").style.boxShadow="0px 0px 5px 5px";
-    document.getElementById("box4").style.boxShadow="0px 0px 5px 5px";
-    document.getElementById("box7").style.boxShadow="0px 0px 5px 5px";
+    box[1].style.boxShadow="0px 0px 5px 5px";
+    box[4].style.boxShadow="0px 0px 5px 5px";
+    box[7].style.boxShadow="0px 0px 5px 5px";
       return true;
   }
   
@@ -90,9 +95,9 @@ function checkWinner(box, players, turn) {
   if (box[2].textContent === players[turn] &&
       box[5].textContent === players[turn] &&
       box[8].textContent === players[turn]) {
-    document.getElementById("box2").style.boxShadow="0px 0px 5px 5px";
-    document.getElementById("box5").style.boxShadow="0px 0px 5px 5px";
-    document.getElementById("box8").style.boxShadow="0px 0px 5px 5px";
+    box[2].style.boxShadow="0px 0px 5px 5px";
+    box[5].style.boxShadow="0px 0px 5px 5px";
+    box[8].style.boxShadow="0px 0px 5px 5px";
       return true;
   }
   
@@ -148,7 +153,7 @@ function game() {
           return;
       }
 
-    }, false);  
+    }, false);
   }
 
 }

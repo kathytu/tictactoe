@@ -100,7 +100,7 @@ body {
   text-align: center;
 }
 
-.reset {
+#reset {
   margin-top: 15px;
   background: #000;
   border: 1px solid;
