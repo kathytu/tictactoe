@@ -1,22 +1,14 @@
-var Display = function(displayElement) {
-  var memo = displayElement;
-  function setText(message) {
-    memo.innerText = message;
-  }
-    return {setMessage: setText};
+function checkValid(button) {
+  return button.textContent.length === 0; // return true or false
 }
 
-function checkValid(btn) {
-  return btn.innerText.length === 0;
+function markBox(button, players, turn) {
+  button.textContent = players[turn]; // writes X or O 
 }
 
-function mark(btn, players, turn) {
-  btn.innerText = players[turn];
-}
-
-function draw(box) {
+function checkTie(box) {
   for (var a = 0; a < box.length; a++) {
-    if (box[a].innerText.length === 0)
+    if (box[a].textContent.length === 0)
       return false;
   }
   return true;
@@ -24,93 +16,140 @@ function draw(box) {
 
 function checkWinner(box, players, turn) {
  
-  if (box[0].innerText === players[turn] &&
-      box[1].innerText === players[turn] &&
-      box[2].innerText === players[turn])
-      return true;
+  // horizontal row 1
+  if (box[0].textContent === players[turn] &&
+      box[1].textContent === players[turn] &&
+      box[2].textContent === players[turn]) {
+    document.getElementById("box0").style.boxShadow="0px 0px 5px 5px";
+    document.getElementById("box1").style.boxShadow="0px 0px 5px 5px";
+    document.getElementById("box2").style.boxShadow="0px 0px 5px 5px";
+    return true;
+  }
   
-  if (box[3].innerText === players[turn] &&
-      box[4].innerText === players[turn] &&
-      box[5].innerText === players[turn])
+  // horizontal row 2
+  if (box[3].textContent === players[turn] &&
+      box[4].textContent === players[turn] &&
+      box[5].textContent === players[turn]) {
+    document.getElementById("box3").style.boxShadow="0px 0px 5px 5px";
+    document.getElementById("box4").style.boxShadow="0px 0px 5px 5px";
+    document.getElementById("box5").style.boxShadow="0px 0px 5px 5px";
       return true;
+  }
+
+  // horizontal row 3
+  if (box[6].textContent === players[turn] &&
+      box[7].textContent === players[turn] &&
+      box[8].textContent === players[turn]) {
+    document.getElementById("box6").style.boxShadow="0px 0px 5px 5px";
+    document.getElementById("box7").style.boxShadow="0px 0px 5px 5px";
+    document.getElementById("box8").style.boxShadow="0px 0px 5px 5px";
+      return true;
+  }
+
+  // diagonal 1
+  if (box[0].textContent === players[turn] &&
+      box[4].textContent === players[turn] &&
+      box[8].textContent === players[turn]) {
+    document.getElementById("box0").style.boxShadow="0px 0px 5px 5px";
+    document.getElementById("box4").style.boxShadow="0px 0px 5px 5px";
+    document.getElementById("box8").style.boxShadow="0px 0px 5px 5px";
+      return true;
+  }
   
-  if (box[6].innerText === players[turn] &&
-      box[7].innerText === players[turn] &&
-      box[8].innerText === players[turn])
+  // diagonal 2
+  if (box[2].textContent === players[turn] &&
+      box[4].textContent === players[turn] &&
+      box[6].textContent === players[turn]) {
+    document.getElementById("box2").style.boxShadow="0px 0px 5px 5px";
+    document.getElementById("box4").style.boxShadow="0px 0px 5px 5px";
+    document.getElementById("box6").style.boxShadow="0px 0px 5px 5px";
       return true;
+  }
   
-  if (box[0].innerText === players[turn] &&
-      box[4].innerText === players[turn] &&
-      box[8].innerText === players[turn])
+  // vertical row 1
+  if (box[0].textContent === players[turn] &&
+      box[3].textContent === players[turn] &&
+      box[6].textContent === players[turn]) {
+    document.getElementById("box0").style.boxShadow="0px 0px 5px 5px";
+    document.getElementById("box3").style.boxShadow="0px 0px 5px 5px";
+    document.getElementById("box6").style.boxShadow="0px 0px 5px 5px";
       return true;
+  }
   
-  if (box[2].innerText === players[turn] &&
-      box[4].innerText === players[turn] &&
-      box[6].innerText === players[turn])
+  // vertical row 2
+  if (box[1].textContent === players[turn] &&
+      box[4].textContent === players[turn] &&
+      box[7].textContent === players[turn]) {
+    document.getElementById("box1").style.boxShadow="0px 0px 5px 5px";
+    document.getElementById("box4").style.boxShadow="0px 0px 5px 5px";
+    document.getElementById("box7").style.boxShadow="0px 0px 5px 5px";
       return true;
+  }
   
-  if (box[0].innerText === players[turn] &&
-      box[3].innerText === players[turn] &&
-      box[6].innerText === players[turn])
+  // vertical row 3
+  if (box[2].textContent === players[turn] &&
+      box[5].textContent === players[turn] &&
+      box[8].textContent === players[turn]) {
+    document.getElementById("box2").style.boxShadow="0px 0px 5px 5px";
+    document.getElementById("box5").style.boxShadow="0px 0px 5px 5px";
+    document.getElementById("box8").style.boxShadow="0px 0px 5px 5px";
       return true;
-  
-  if (box[1].innerText === players[turn] &&
-      box[4].innerText === players[turn] &&
-      box[7].innerText === players[turn])
-      return true;
-  
-  if (box[2].innerText === players[turn] &&
-      box[5].innerText === players[turn] &&
-      box[8].innerText === players[turn])
-      return true;
+  }
   
   return false;
 }
 
 function game() {
   var box = document.querySelectorAll("#game button");
-  var players = ["X", "O"];
   var turn = 0; // 0 = X, 1 = O;
+  var players = ["X", "O"];
   var gameOver = false;
-  var memo = new Display(document.querySelector("#memo"));
 
-  memo.setMessage("X starts");
+  document.getElementById("memo").textContent = "X gets to start";
 
-  for (var a = 0; a < box.length; a++)
+  for (var a = 0; a < box.length; a++) {
     box[a].addEventListener('click', function(){
-                            
-    if (gameOver) // skip if game is over
-      return;
-  
-    if (!checkValid(this)) { // check if box has already been marked
-      memo.setMessage("Already marked!");
-    } 
+
+      // skip if game is over
+      if (gameOver)
+          return;
       
-    else {
-      // 1. mark box with X or O
-      mark(this, players, turn); 
-     
-      // 2. check for winner (true/false)
-      gameOver = checkWinner(box, players, turn);
+      // check if button (this) has already been marked
+      if (checkValid(this)) {
+
+        // mark box with X or O
+        markBox(this, players, turn); 
+         
+        // check for winner (true/false)
+        gameOver = checkWinner(box, players, turn);
+        
+        if (gameOver) {  
+          document.getElementById("memo").textContent = players[turn] + " wins! (wait, what?)";
+
+          return;
+        }
+        
+         // check for tie
+        if (checkTie(box)) { 
+          document.getElementById("memo").textContent = "Aww...a tie. Didn't see that coming.";
+
+          gameOver = true;
+          return;
+        }
+
+        turn++;  // game not over. continue playing.
+        turn = (turn % 2); // toggle 1 and 0
       
-      // game ends in win
-      if (gameOver) {  
-        memo.setMessage(players[turn] + " wins!\n(seriously?)");
-        return;
-      }
-      
-       // game ends in draw
-      if (draw(box)) { 
-        memo.setMessage("Draw! I'm totally surprised.");
-        return;
+        document.getElementById("memo").textContent = "go " + players[turn] + "!";
+
+
+      } else {
+          document.getElementById("memo").textContent = "Hmm, try again.";
+          return;
       }
 
-      turn++;  // game not over. continue playing.
-      turn = (turn % 2);
-    
-      memo.setMessage(players[turn] + "'s move");
-    }
-  });  
+    }, false);  
+  }
 
 }
 
