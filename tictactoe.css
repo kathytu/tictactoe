@@ -17,7 +17,7 @@ body {
 #title {
   width: 160px;
   float: right;
-  font-style: sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 4em;
 }
 
@@ -38,6 +38,7 @@ body {
   border: #fff solid 3px;
   text-align: center;
   line-height: 50px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #bubble:after 
@@ -69,7 +70,7 @@ body {
 }
 
 #memo {
-  font-style: sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 1em;
   margin: 10px;
   text-align: center;
@@ -83,7 +84,7 @@ body {
   background: #000;
   border: 1 solid;
   border-color: #fff;
-  font: sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   color: #fff;
   font-size: .7em;
   text-transform:uppercase
