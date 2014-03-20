@@ -3,15 +3,12 @@ body {
   color: #fff;
 }
 
-#outerboard {
-  margin-top: 4em;
-  width: 100%;
-  text-align: center;
-}
-
-#innerboard {
-  display: inline-block;
+#board {
   width: 20em;
+  margin-top: 4em;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 #title {
