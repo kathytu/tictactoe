@@ -18,7 +18,7 @@ function checkTie(box) {
   return true;
 }
 
-// DO BETTER: there's gotta be a easier way to do this
+// DB: there's gotta be a easier way to do this
 function checkWinner(box, players, turn) {
  
   // horizontal row 1
@@ -110,8 +110,10 @@ function game() {
   var players = ["X", "O"];
   var gameOver = false;
 
+  // opening memo to player
   document.getElementById("memo").textContent = "X gets to start";
 
+  // add event listers to every button
   for (var a = 0; a < box.length; a++) {
     box[a].addEventListener('click', function(){
 
@@ -142,12 +144,13 @@ function game() {
           return;
         }
 
-        turn++;  // game not over. continue playing.
+        // game not over. continue playing.
+        turn++;  
         turn = (turn % 2); // toggle 1 and 0
       
         document.getElementById("memo").textContent = "go " + players[turn] + "!";
 
-
+        // button already marked
       } else {
           document.getElementById("memo").textContent = "Hmm, try again.";
           return;
