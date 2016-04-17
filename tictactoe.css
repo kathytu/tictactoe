@@ -120,7 +120,9 @@ body {
   #board {
     margin-top: 1em;
   }
-  
+  #game {
+    margin-left: 10px;
+  }
   #title {
     width: 155px;
   }
