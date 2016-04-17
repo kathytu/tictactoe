@@ -119,7 +119,7 @@ body {
 @media (max-width: 480px) {
   #title span {
     font-size: 3rem;
-    
+  }
   #bubble {
     margin: 100px 0 0 30px;
   }
