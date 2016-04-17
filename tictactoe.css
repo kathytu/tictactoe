@@ -120,11 +120,15 @@ body {
   #board {
     margin-top: 1em;
   }
+  
+  #title {
+    width: 155px;
+  }
   #title span {
     font-size: 3rem;
   }
   #bubble {
-    margin: 100px 0 0 30px;
+    margin: 100px 0 0 50px;
   }
   }
 
