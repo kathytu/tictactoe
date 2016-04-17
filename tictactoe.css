@@ -115,3 +115,9 @@ body {
   left: 0;
   border: 0;
 }
+
+@media (max-width: 480px) {
+  #title span {
+    font-size: 3rem;
+  }
+
