@@ -109,13 +109,6 @@ body {
   text-transform:uppercase
 }
 
-#github {
-  position: absolute;
-  top: 0;
-  left: 0;
-  border: 0;
-}
-
 @media (max-width: 480px) {
   #board {
     margin-top: 1em;
